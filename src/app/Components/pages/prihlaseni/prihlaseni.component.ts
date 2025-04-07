@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prihlaseni',
-  imports: [],
   templateUrl: './prihlaseni.component.html',
-  styleUrl: './prihlaseni.component.scss'
+  styleUrls: ['./prihlaseni.component.scss']
 })
 export class PrihlaseniComponent {
 
+  constructor(private router: Router) {}
+
+  navigateToHome() {
+    this.router.navigate(['/']); // Přesměrování na hlavní stránku
+  }
 }

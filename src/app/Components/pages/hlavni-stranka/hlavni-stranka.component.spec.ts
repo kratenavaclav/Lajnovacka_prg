@@ -21,3 +21,5 @@ describe('HlavniStrankaComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

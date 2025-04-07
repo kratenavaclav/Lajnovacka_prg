@@ -9,3 +9,5 @@ import { NavbarComponent } from '../../navbar/navbar.component';
   styleUrls: ['./hlavni-stranka.component.scss']
 })
 export class HlavniStrankaComponent {}
+
+

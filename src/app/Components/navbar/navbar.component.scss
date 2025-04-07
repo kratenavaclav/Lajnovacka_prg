@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,400|Inter:400");
+
+// Definice proměnných
+$app-background: rgba(240, 240, 240, 1);
+$app-primary: rgba(13, 43, 94, 1);
+$app-secondary: rgba(231, 76, 60, 1);
+$white: rgba(255, 255, 255, 1);
+
+// Hlavní navigační lišta
+.navbar {
+  background-color: $app-primary;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  // Logo v navigaci
+  &-logo {
+    color: $white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+  // Navigační položky
+  &-menu {
+    display: flex;
+    gap: 1.5rem;
+
+    .nav-item {
+      color: $white;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        font-weight: 700;
+        border-bottom: 2px solid $white;
+      }
+    }
+  }
+
+  // Tlačítka pro přihlášení/registraci
+  &-auth {
+    display: flex;
+    gap: 1rem;
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &-login {
+        background-color: transparent;
+        color: $white;
+        border: 1px solid $white;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      &-register {
+        background-color: $app-secondary;
+        color: $white;
+        border: none;
+
+        &:hover {
+          background-color: darken($app-secondary, 10%);
+        }
+      }
+    }
+  }
+
+  // Responzivní design pro menší obrazovky
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+
+    &-menu {
+      margin: 1rem 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &-auth {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

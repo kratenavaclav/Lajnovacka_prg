@@ -1,0 +1,92 @@
+// Globální proměnné
+$primary-color: #0a2952;
+$secondary-color: #e63946;
+$background-color: #f5f5f5;
+$table-header-bg: #0a2952;
+$table-row-bg: #ffffff;
+$table-border-color: #cccccc;
+
+// Kontejner stránky
+.league-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: $background-color;
+
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: $primary-color;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .league-table {
+    background-color: $table-row-bg;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $table-header-bg;
+      color: white;
+      padding: 10px;
+
+      span {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        background-color: $table-header-bg;
+
+        th {
+          color: white;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+
+      tbody {
+        tr {
+          background-color: $table-row-bg;
+
+          &:nth-child(even) {
+            background-color: lighten($table-row-bg, 5%);
+          }
+
+          td {
+            padding: 10px;
+            text-align: center;
+
+            img {
+              width: 20px; /* Velikost loga týmu */
+              margin-right: 5px; /* Mezera mezi logem a textem */
+            }
+
+            .form {
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
+              text-align: center;
+              border-radius: 50%;
+              margin-right: 3px;
+
+              &.green {
+                background-color: green;
+                color: white;
+              }
+
+              &.red {
+                background-color: red;
+                color:white}}}}}}}}

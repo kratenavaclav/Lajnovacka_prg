@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Přihlášení</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 <div class="login-container">
-  <div class="login-content">
-    <div class="soccer-image">
-      <div class="soccer-ball">
-        <img src="assets/icons/logo.png" alt="Fotbalový míč s modro-červeným efektem">
+  <div class="login-box">
+    <div class="login-content">
+      <div class="logo-section">
+        <img src="icons/logo.png" alt="Fotbalový míč" class="football-logo">
       </div>
-    </div>
-    <div class="form-container">
-      <h1>Přihlášení</h1>
-      <form>
+      <div class="form-section">
+        <h1 class="title">Přihlášení</h1>
+
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="Zadej e-mail">
+          <input
+            type="email"
+            id="email"
+            placeholder="Zadej e-mail"
+            class="form-control">
         </div>
+
         <div class="form-group">
           <label for="password">Heslo</label>
-          <input type="password" id="password" placeholder="Zadej heslo">
+          <input
+            type="password"
+            id="password"
+            placeholder="Zadej heslo"
+            class="form-control">
           <div class="forgot-password">
             <a href="#">Zapomenuté heslo?</a>
           </div>
         </div>
-        <button type="submit" class="login-button">Přihlásit se</button>
-      </form>
+
+        <button type="button" class="btn-login">Přihlásit se</button>
+      </div>
     </div>
   </div>
 </div>
-</body>
-</html>

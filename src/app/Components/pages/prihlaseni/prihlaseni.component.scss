@@ -1,23 +1,155 @@
-.card {
-  border-radius: 8px;
+// Základní reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.form-control {
-  border: 1px solid #ccc;
-  border-radius: 4px;
+// Proměnné
+$border-color: #162a5a;
+$button-color: #f82525;
+$button-hover: #e41f1f;
+$link-color: #7a2cff;
+$background-color: #f5f5f5;
+$input-background: #eee;
 
-  &:focus {
-    outline-color: #0a2657;
-    border-color: #0a2657;
-    box-shadow: none;
+body {
+  background-color: $background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 620px;
+}
+
+.login-box {
+  display: flex;
+  background-color: white;
+  border: 2px solid $border-color;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.soccer-ball-container {
+  flex: 0 0 40%;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(200, 200, 200, 0.1),
+        rgba(200, 200, 200, 0.1) 10px,
+        rgba(220, 220, 220, 0.1) 10px,
+        rgba(220, 220, 220, 0.1) 20px
+    );
   }
 }
 
-.btn-danger {
-  background-color: #e74c3c; /* Červená barva */
+.soccer-ball {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.login-form {
+  flex: 0 0 60%;
+  padding: 30px 20px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: $input-background;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 5px;
+
+  a {
+    color: $link-color;
+    font-size: 12px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: $button-color;
+  color: white;
   border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: darken(#e74c3c, 10%);
+    background-color: $button-hover;
+  }
+}
+
+// Responzivní design pro mobilní zařízení
+@media (max-width: 768px) {
+  .login-box {
+    flex-direction: column;
+  }
+
+  .soccer-ball-container {
+    padding: 30px;
+  }
+
+  .soccer-ball {
+    max-width: 150px;
   }
 }

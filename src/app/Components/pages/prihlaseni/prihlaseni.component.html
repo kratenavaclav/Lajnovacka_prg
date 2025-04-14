@@ -1,32 +1,37 @@
-<div class="container vh-100 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-4" style="max-width: 500px; border-radius: 8px; border: 2px solid #0a2657;">
-    <div class="card-body text-center">
-      <!-- Nadpis -->
-      <h1 class="mb-4" style="color: #0a2657;">Přihlášení</h1>
-
-      <!-- Obrázek míče -->
-      <div class="mb-4">
-        <img src="assets/images/soccer-ball.png" alt="Fotbalový míč" class="img-fluid" style="max-width: 150px;">
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Přihlášení</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login-container">
+  <div class="login-content">
+    <div class="soccer-image">
+      <div class="soccer-ball">
+        <img src="assets/icons/logo.png" alt="Fotbalový míč s modro-červeným efektem">
       </div>
-
-      <!-- Formulář -->
+    </div>
+    <div class="form-container">
+      <h1>Přihlášení</h1>
       <form>
-        <!-- E-mail -->
-        <div class="form-group mb-3">
-          <label for="email" class="form-label">E-mail</label>
-          <input type="email" id="email" class="form-control" placeholder="Zadej e-mail">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="Zadej e-mail">
         </div>
-
-        <!-- Heslo -->
-        <div class="form-group mb-3">
-          <label for="password" class="form-label">Heslo</label>
-          <input type="password" id="password" class="form-control" placeholder="Zadej heslo">
-          <a href="#" class="d-block mt-2 text-end text-muted">Zapomenuté heslo?</a>
+        <div class="form-group">
+          <label for="password">Heslo</label>
+          <input type="password" id="password" placeholder="Zadej heslo">
+          <div class="forgot-password">
+            <a href="#">Zapomenuté heslo?</a>
+          </div>
         </div>
-
-        <!-- Přihlásit se tlačítko -->
-        <button type="button" (click)="navigateToHome()" class="btn btn-danger w-100">Přihlásit se</button>
+        <button type="submit" class="login-button">Přihlásit se</button>
       </form>
     </div>
   </div>
 </div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Matches panel (left side) */
+.matches-panel {
+  flex: 0 0 30%;
+}
+
+.match-box {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  padding: 15px;
+  display: flex;
+  border-radius: 3px;
+}
+
+.match-date {
+  text-align: center;
+  flex: 0 0 auto;
+  margin-right: 15px;
+  font-weight: bold;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+
+    &:first-child {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+
+  &.large {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+.versus {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 10px;
+
+  &.large {
+    font-size: 32px;
+  }
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.large {
+    width: 80px;
+    height: 80px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &.sparta img {
+    border-radius: 50%;
+  }
+
+  &.slavia img {
+    border-radius: 0;
+  }
+}
+
+/* Betting panel (right side) */
+.betting-panel {
+  flex: 0 0 65%;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.round-info {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.match-highlight {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+
+  .match-date {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 0;
+
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+.betting-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.bet-btn {
+  background-color: #ff4c29;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken(#ff4c29, 10%);
+  }
+}
+
+.my-bets-btn {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  background-color: #ff4c29;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken(#ff4c29, 10%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .matches-panel, .betting-panel {
+    flex: 0 0 100%;
+  }
+}
+
+

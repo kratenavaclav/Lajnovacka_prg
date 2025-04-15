@@ -11,6 +11,6 @@ export class PrihlaseniComponent {
   constructor(private router: Router) {}
 
   navigateToHome() {
-    this.router.navigate(['/']); // Přesměrování na hlavní stránku
+    this.router.navigate(['/']);
   }
 }

@@ -1,0 +1,117 @@
+.discussion-container {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  font-family: 'Inter', sans-serif;
+}
+
+.chat-section {
+  flex: 1;
+  background-color: #0a1c3a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #06152d;
+  font-weight: bold;
+  gap: 15px;
+
+  .user-info {
+    flex: 1;
+
+    .username {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .status {
+      font-size: 14px;
+      color: #ff4c4c;
+      margin: 0;
+    }
+  }
+
+  .menu-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+
+  .message {
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    padding: 10px 15px;
+    max-width: 70%;
+    position: relative;
+    font-size: 14px;
+
+    &.incoming {
+      align-self: flex-start;
+      background-color: #e5e5e5;
+    }
+
+    &.outgoing {
+      align-self: flex-end;
+      background-color: #d1ffd6;
+    }
+
+    .time {
+      display: block;
+      text-align: right;
+      font-size: 12px;
+      color: gray;
+      margin-top: 5px;
+    }
+  }
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+
+  input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+.feed-section {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 30px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

@@ -18,7 +18,6 @@ export const routes: Routes = [
   { path: 'tabulka-strelcu', component: TabulkaStrelcuComponent },
   { path: 'tipovaci-soutez', component: TipovaciSoutezComponent },
   { path: 'prihlaseni', component: PrihlaseniComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // Přesměrování na hlavní stránku při neplatné URL
   { path: 'registrace', component: RegistraceComponent }, // New route for registration
   { path: '**', redirectTo: '', pathMatch: 'full' } // Wildcard route for invalid URLs
 ];

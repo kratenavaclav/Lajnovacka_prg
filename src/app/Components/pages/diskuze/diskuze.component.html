@@ -1,3 +1,42 @@
 <app-navbar></app-navbar>
-<h1>Diskuze</h1>
-<p>Zde bude diskuze.</p>
+
+<div class="discussion-container">
+  <!-- LEVÁ ČÁST: statický chat -->
+  <div class="chat-section">
+    <div class="chat-header">
+      <div class="user-info">
+        <p class="username">Fotbalový maniak</p>
+        <p class="status">Online</p>
+      </div>
+      <span class="menu-icon">⋮</span>
+    </div>
+
+    <div class="chat-messages">
+      <div class="message incoming">
+        <p>Jak hodnotíš dnešní zápas?</p>
+        <span class="time">14:30</span>
+      </div>
+
+      <div class="message outgoing">
+        <p>Myslím, že to bylo docela napínavé utkání!</p>
+        <span class="time">14:35</span>
+      </div>
+
+      <div class="message outgoing">
+        <p>Souhlasím, brankář byl dnes hvězdou.</p>
+        <span class="time">14:40</span>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" placeholder="Napište zprávu" />
+      <button>📎</button>
+    </div>
+  </div>
+
+  <!-- PRAVÁ ČÁST: statický text -->
+  <div class="feed-section">
+    <h2>Pro vás</h2>
+    <p>Tady bude obsah doporučený přímo pro tebe.</p>
+  </div>
+</div>

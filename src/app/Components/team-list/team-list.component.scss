@@ -94,6 +94,19 @@ form {
   font-weight: bold;
 }
 
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.image-grid img {
+  width: 70%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
 .nav-item {
   color: $white;
   font-family: 'Inter', sans-serif;
@@ -110,10 +123,6 @@ form {
     font-weight: 700;
     border-bottom: 2px solid $white;
   }
-  .sidebar img {
-    width: 5px;
-    height: auto;
-    margin: 5px 0;
-  }
+
 }
 

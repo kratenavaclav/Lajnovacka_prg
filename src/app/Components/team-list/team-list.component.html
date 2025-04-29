@@ -1,68 +1,26 @@
 <a (click)="toggleSidebar()" class="nav-item">Týmy</a>
 
-
 <div class="sidebar bg-secondary" [class.open]="isOpen">
   <button class="close-btn" (click)="toggleSidebar()">×</button>
-  <table>
-    <tbody>
-    <!-- Řádek 1 -->
-    <tr>
 
-      <td><img src="icons/AC-Sparta-LOGO2021.png" /> </td>
-
-    </tr>
-
-    <!-- Řádek 2 -->
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png"  /> </td>
-    </tr>
-
-    <!-- Řádek 3 -->
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png"  /> </td>
-    </tr>
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="icons/AC-Sparta-LOGO2021.png"  /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-    <tr>
-      <td><img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" /> </td>
-    </tr>
-
-    </tbody>
-  </table>
+  <!-- Místo table použijeme div s gridem pro obrázky -->
+  <div class="image-grid">
+    <img src="icons/AC-Sparta-LOGO2021.png" />
+    <img src="icons/Salvie.png" />
+    <img src="icons/Banicek.png" />
+    <img src="icons/Jablonec.png" />
+    <img src="icons/AC-Sparta-LOGO2021.png" />
+    <img src="icons/AC-Sparta-LOGO2021.png" />
+    <img src="icons/AC-Sparta-LOGO2021.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+    <img src="https://c.animaapp.com/m95wiqhuososZI/img/sparta-logo.png" />
+  </div>
 </div>
 
 <div class="overlay" *ngIf="isOpen" (click)="toggleSidebar()"></div>

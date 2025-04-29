@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopscorerService, TopScorer } from 'app/services/topscorer/topscorer.service';
+import { PlayersService, Player } from 'app/services/topscorer/topscorer.service'; // Importujeme službu a typ Player
 import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
@@ -12,13 +12,14 @@ import { NavbarComponent } from "../../navbar/navbar.component";
   styleUrls: ['./tabulka-strelcu.component.scss']
 })
 export class TabulkaStrelcuComponent implements OnInit {
-  scorers: TopScorer[] = [];
+  players: Player[] = []; // Měníme na players podle Player modelu
 
-  constructor(private topscorerService: TopscorerService) {}
+  constructor(private playersService: PlayersService) {}
 
   ngOnInit(): void {
-    this.topscorerService.getTopScorers().subscribe((data) => {
-      this.scorers = data;
+    this.playersService.getSortedPlayers().subscribe((data) => {
+      this.players = data; // Seřazené hráče už dostáváme přímo z API
     });
   }
 }
+

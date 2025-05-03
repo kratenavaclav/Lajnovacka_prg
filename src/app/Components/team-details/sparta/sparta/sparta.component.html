@@ -24,40 +24,36 @@
     <div class="category">
       <h3>Brankáři</h3>
       <ul>
-        <li>#22 Heerkens Joeri 🇳🇱</li>
-        <li>#44 Surovčík Jakub 🇨🇿</li>
-        <li>#1 Vindahl Peter 🇩🇰</li>
+        <li *ngFor="let p of goalkeepers">
+          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span> <!-- Nahraď vlajkou podle p.nationality -->
+        </li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Obránci</h3>
       <ul>
-        <li>#33 Cobbaut Elias 🇧🇪</li>
-        <li>#27 Panák Filip 🇨🇿</li>
-        <li>#5 Ross Mathias 🇬🇧</li>
-        <li>#2 Suchomel Martin 🇨🇿</li>
-        <li>#25 Sørensen Asger 🇩🇰</li>
-        <li>#16 Uchenna Emmanuel 🇳🇬</li>
-        <!-- ... -->
+        <li *ngFor="let p of defenders">
+          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
+        </li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Záložníci</h3>
       <ul>
-        <li>#8 Andersen Magnus 🇩🇰</li>
-        <li>#10 Horák Roman 🇨🇿</li>
-        <!-- ... -->
+        <li *ngFor="let p of midfielders">
+          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
+        </li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Útočníci</h3>
       <ul>
-        <li>#14 Birmančević Veljko 🇷🇸</li>
-        <li>#22 Haraslín Lukáš 🇸🇰</li>
-        <!-- ... -->
+        <li *ngFor="let p of forwards">
+          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
+        </li>
       </ul>
     </div>
   </div>

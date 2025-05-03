@@ -6,9 +6,10 @@ import { Player } from 'app/models/player/model';
 
 @Injectable({ providedIn: 'root' })
 export class TeamService {
-  private apiUrl: string = 'http://localhost:5044/api/Players';
+  private apiUrl: string = 'http://localhost:5044/api/Players'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   /** Získání všech hráčů */
   getAllPlayers(): Observable<Player[]> {

@@ -4,22 +4,54 @@
   <button class="close-btn" (click)="toggleSidebar()">×</button>
 
   <div class="image-grid">
-    <img src="icons/sparta.png" />
-    <img src="icons/slavie.png" />
-    <img src="icons/Banicek.png" />
-    <img src="icons/Jablonec.png" />
-    <img src="icons/liberec.png" />
-    <img src="icons/plzen.png" />
-    <img src="icons/olomouc.webp" />
-    <img src="icons/bohemka.png" />
-    <img src="icons/boleslav.png" />
-    <img src="icons/budejky.jpg" />
-    <img src="icons/dukla.png" />
-    <img src="icons/hradec.png" />
-    <img src="icons/karvina.png" />
-    <img src="icons/pardubice.png" />
-    <img src="icons/slovacko.png" />
-    <img src="icons/teplice.jfif" />
+    <a [routerLink]="['/teams', 'sparta']" (click)="toggleSidebar()">
+      <img src="icons/sparta.png" alt="Sparta Praha" />
+    </a>
+    <a [routerLink]="['/teams', 'slavie']" (click)="toggleSidebar()">
+      <img src="icons/slavie.png" alt="Slavia Praha" />
+    </a>
+    <a [routerLink]="['/teams', 'banicek']" (click)="toggleSidebar()">
+      <img src="icons/Banicek.png" alt="Baník Ostrava" />
+    </a>
+    <a [routerLink]="['/teams', 'jablonec']" (click)="toggleSidebar()">
+      <img src="icons/Jablonec.png" alt="Jablonec" />
+    </a>
+    <a [routerLink]="['/teams', 'liberec']" (click)="toggleSidebar()">
+      <img src="icons/liberec.png" alt="Liberec" />
+    </a>
+    <a [routerLink]="['/teams', 'plzen']" (click)="toggleSidebar()">
+      <img src="icons/plzen.png" alt="Plzeň" />
+    </a>
+    <a [routerLink]="['/teams', 'olomouc']" (click)="toggleSidebar()">
+      <img src="icons/olomouc.webp" alt="Olomouc" />
+    </a>
+    <a [routerLink]="['/teams', 'bohemka']" (click)="toggleSidebar()">
+      <img src="icons/bohemka.png" alt="Bohemians" />
+    </a>
+    <a [routerLink]="['/teams', 'boleslav']" (click)="toggleSidebar()">
+      <img src="icons/boleslav.png" alt="Mladá Boleslav" />
+    </a>
+    <a [routerLink]="['/teams', 'budejky']" (click)="toggleSidebar()">
+      <img src="icons/budejky.jpg" alt="České Budějovice" />
+    </a>
+    <a [routerLink]="['/teams', 'dukla']" (click)="toggleSidebar()">
+      <img src="icons/dukla.png" alt="Dukla Praha" />
+    </a>
+    <a [routerLink]="['/teams', 'hradec']" (click)="toggleSidebar()">
+      <img src="icons/hradec.png" alt="Hradec Králové" />
+    </a>
+    <a [routerLink]="['/teams', 'karvina']" (click)="toggleSidebar()">
+      <img src="icons/karvina.png" alt="Karviná" />
+    </a>
+    <a [routerLink]="['/teams', 'pardubice']" (click)="toggleSidebar()">
+      <img src="icons/pardubice.png" alt="Pardubice" />
+    </a>
+    <a [routerLink]="['/teams', 'slovacko']" (click)="toggleSidebar()">
+      <img src="icons/slovacko.png" alt="Slovácko" />
+    </a>
+    <a [routerLink]="['/teams', 'teplice']" (click)="toggleSidebar()">
+      <img src="icons/teplice.jfif" alt="Teplice" />
+    </a>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { PlayersService, Player } from 'app/services/topscorer/topscorer.service'; // Importujeme službu a typ Player
 import { NavbarComponent } from "../../navbar/navbar.component";
 
@@ -22,4 +22,4 @@ export class TabulkaStrelcuComponent implements OnInit {
     });
   }
 }
-
+*/

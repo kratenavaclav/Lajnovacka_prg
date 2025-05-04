@@ -2,20 +2,26 @@
 
 <div class="team-container">
   <div class="header">
-    <img src="icons/sparta.png" alt="Sparta logo" class="team-logo" />
-    <div class="team-info">
-      <h1>AC Sparta Praha</h1>
-      <h2>Soupiska:</h2>
+    <div class="d-flex align-items-center">
+      <img src="icons/sparta.png" alt="Sparta logo" class="team-logo" />
+      <div class="team-info">
+        <h1>{{ team.name }}</h1>
+        <h2>Soupiska:</h2>
+      </div>
     </div>
+
     <div class="coach">
-      <p>Hlavní trenér: <strong><img src="https://flagcdn.com/w40/dk.png" class="flag" /> Lars Friis</strong></p>
-      <p class="position">Pozice v tabulce: <strong>2</strong></p>
-      <div class="socials">
-        <a href="#">🌐</a>
-        <a href="#">📸</a>
-        <a href="#">📘</a>
-        <a href="#">📧</a>
-        <a href="#">🎵</a>
+      <p><strong>Hlavní trenér:</strong> {{ coach.name }} {{ coach.surname }}</p>
+
+      <div class="coach-controls">
+        <span class="position">Pozice v tabulce: 1</span>
+        <div class="social-icons">
+          <a class="badge-box link" href="https://sparta.cz/cs" target="_blank">www</a>
+          <a href="https://www.instagram.com/acsparta_cz/" target="_blank"><img src="icons/instagram.png" class="social-icon" /></a>
+          <a href="https://www.facebook.com/ACSpartaPraha/" target="_blank"><img src="icons/facebook.png" class="social-icon" /></a>
+          <a href="https://x.com/acsparta_cz/" target="_blank"><img src="icons/x.png" class="social-icon" /></a>
+          <a href="https://www.tiktok.com/@acsparta_cz/" target="_blank"><img src="icons/tiktok.png" class="social-icon" /></a>
+        </div>
       </div>
     </div>
   </div>
@@ -24,45 +30,37 @@
     <div class="category">
       <h3>Brankáři</h3>
       <ul>
-        <li *ngFor="let p of goalkeepers">
-          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span> <!-- Nahraď vlajkou podle p.nationality -->
-        </li>
+        <li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Obránci</h3>
       <ul>
-        <li *ngFor="let p of defenders">
-          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
-        </li>
+        <li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Záložníci</h3>
       <ul>
-        <li *ngFor="let p of midfielders">
-          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
-        </li>
+        <li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Útočníci</h3>
       <ul>
-        <li *ngFor="let p of forwards">
-          #{{ p.id }} {{ p.name }} {{ p.surname }} <span>🇨🇿</span>
-        </li>
+        <li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
   </div>
 
   <div class="stats">
-    <p><strong>Počet titulů:</strong> 38</p>
-    <p><strong>Kapacita stadionu:</strong> 18 349</p>
-    <p><strong>Počet titulů v Českém poháru:</strong> 22</p>
-    <p><strong>Stadion:</strong> epet Aréna</p>
-    <p><strong>Rok založení:</strong> 1893</p>
+    <p><strong>Počet titulů:</strong> {{ team.leagueTitles }}</p>
+    <p><strong>Kapacita stadionu:</strong> {{ team.stadiumCapacity }}</p>
+    <p><strong>Počet titulů v Českém poháru:</strong> {{ team.cupTitles }}</p>
+    <p><strong>Stadion:</strong> {{ team.stadium }}</p>
+    <p><strong>Rok založení:</strong> {{ team.foundationYear }}</p>
   </div>
 </div>

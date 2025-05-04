@@ -13,11 +13,9 @@
 
     .team-logo {
       height: 100px;
-
     }
 
     .team-info {
-      flex: 1;
       margin-left: 1rem;
 
       h1 {
@@ -39,12 +37,14 @@
       p {
         margin: 0.3rem 0;
         font-size: 1.1rem;
+      }
 
-        .flag {
-          height: 20px;
-          vertical-align: middle;
-          margin-right: 6px;
-        }
+      .coach-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
       }
 
       .position {
@@ -53,14 +53,27 @@
         font-weight: bold;
         padding: 0.25rem 0.8rem;
         border-radius: 8px;
-        display: inline-block;
-        margin-top: 0.5rem;
       }
 
-      .socials a {
-        margin: 0 6px;
-        font-size: 1.4rem;
+      .badge-box.link {
+        background-color: #002a86;
+        color: white;
+        padding: 0.25rem 0.8rem;
+        border-radius: 8px;
         text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
       }
     }
   }
@@ -86,7 +99,7 @@
 
         li {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           background-color: #f1f1f1;
           padding: 0.5rem 0.75rem;
@@ -100,7 +113,7 @@
   }
 
   .stats {
-    margin-top: 2.5rem;
+    margin-top: -10.5rem;
     font-size: 1rem;
     border-left: 4px solid #002a86;
     padding-left: 1rem;

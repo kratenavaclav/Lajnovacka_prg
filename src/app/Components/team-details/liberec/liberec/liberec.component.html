@@ -2,20 +2,25 @@
 
 <div class="team-container">
   <div class="header">
-    <img src="icons/liberec.png" alt="FC Slovan Liberec logo" class="team-logo" />
-    <div class="team-info">
-      <h1>FC Slovan Liberec</h1>
-      <h2>Soupiska:</h2>
+    <div class="d-flex align-items-center">
+      <img src="icons/liberec.png" alt="Sparta logo" class="team-logo" />
+      <div class="team-info">
+        <h1>{{ team.name }}</h1>
+        <h2>Soupiska:</h2>
+      </div>
     </div>
+
     <div class="coach">
-      <p>Hlavní trenér: <strong><img src="https://flagcdn.com/w40/cz.png" class="flag" /> Radoslav Kováč</strong></p>
-      <p class="position">Pozice v tabulce: <strong>7</strong></p>
-      <div class="socials">
-        <a href="#">🌐</a>
-        <a href="#">📸</a>
-        <a href="#">📘</a>
-        <a href="#">📧</a>
-        <a href="#">🎵</a>
+      <p><strong>Hlavní trenér:</strong> {{ coach.name }} {{ coach.surname }}</p>
+
+      <div class="coach-controls">
+        <span class="position">Pozice v tabulce: 3</span>
+        <div class="social-icons">
+          <a class="badge-box link" href="https://www.fcslovanliberec.cz/" target="_blank">www</a>
+          <a href="https://www.instagram.com/fcslovanliberec/" target="_blank"><img src="icons/instagram.png" class="social-icon" /></a>
+          <a href="https://www.facebook.com/fcslovanliberec" target="_blank"><img src="icons/facebook.png" class="social-icon" /></a>
+          <a href="https://x.com/fcslovanliberec" target="_blank"><img src="icons/x.png" class="social-icon" /></a>
+        </div>
       </div>
     </div>
   </div>
@@ -24,59 +29,37 @@
     <div class="category">
       <h3>Brankáři</h3>
       <ul>
-        <li>#40 Tomáš Koubek 🇨🇿</li>
-        <li>#1 Ivan Krajčírik 🇸🇰</li>
-        <li>#47 Jindřich Musil 🇨🇿</li>
+        <li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Obránci</h3>
       <ul>
-        <li>#2 Dominik Plechatý 🇨🇿</li>
-        <li>#3 Jan Mikula 🇨🇿</li>
-        <li>#4 Martin Rýzek 🇸🇰</li>
-        <li>#18 Josef Koželuh 🇨🇿</li>
-        <li>#22 Jan Knapík 🇨🇿</li>
-        <li>#27 Aziz Kayondo 🇺🇬</li>
-        <li>#29 Dominik Mašek 🇨🇿</li>
-        <li>#32 Šimon Gabriel 🇨🇿</li>
+        <li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Záložníci</h3>
       <ul>
-        <li>#5 Denis Višinský 🇨🇿</li>
-        <li>#6 Ivan Varfolomejev 🇺🇦</li>
-        <li>#8 Marek Icha 🇨🇿</li>
-        <li>#9 Santiago Eneme 🇬🇶</li>
-        <li>#11 Christian Frýdek 🇨🇿</li>
-        <li>#14 Matěj Strnad 🇨🇿</li>
-        <li>#19 Michal Hlavatý 🇨🇿</li>
-        <li>#24 Patrik Dulay 🇸🇰</li>
-        <li>#25 Ahmad Ghali 🇳🇬</li>
-        <li>#26 Lukáš Masopust 🇨🇿</li>
-        <li>#34 Qëndrim Zyba 🇽🇰</li>
+        <li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
 
     <div class="category">
       <h3>Útočníci</h3>
       <ul>
-        <li>#7 Michael Rabušic 🇨🇿</li>
-        <li>#21 Lukáš Letenay 🇸🇰</li>
-        <li>#28 Benjamin Nyarko 🇬🇭</li>
-        <li>#99 Raimonds Krollis 🇱🇻</li>
+        <li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
   </div>
 
   <div class="stats">
-    <p><strong>Počet titulů:</strong> 3</p>
-    <p><strong>Kapacita stadionu:</strong> 9 900</p>
-    <p><strong>Počet titulů v Českém poháru:</strong> 1</p>
-    <p><strong>Stadion:</strong> Stadion u Nisy</p>
-    <p><strong>Rok založení:</strong> 1958</p>
+    <p><strong>Počet titulů:</strong> {{ team.leagueTitles }}</p>
+    <p><strong>Kapacita stadionu:</strong> {{ team.stadiumCapacity }}</p>
+    <p><strong>Počet titulů v Českém poháru:</strong> {{ team.cupTitles }}</p>
+    <p><strong>Stadion:</strong> {{ team.stadium }}</p>
+    <p><strong>Rok založení:</strong> {{ team.foundationYear }}</p>
   </div>
 </div>

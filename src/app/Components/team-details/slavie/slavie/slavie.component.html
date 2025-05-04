@@ -7,15 +7,19 @@
       <h1>{{ team.name }}</h1>
       <h2>Soupiska:</h2>
     </div>
-    <div class="coach">
-      <p>Hlavní trenér: <strong>{{ coach.name }} {{ coach.surname }}</strong></p>
-      <p class="position">Pozice v tabulce: <strong>1</strong></p>
-      <div class="socials">
-        <a href="#">🌐</a>
-        <a href="#">📸</a>
-        <a href="#">📘</a>
-        <a href="#">📧</a>
-        <a href="#">🎵</a>
+    <div class="text-end coach-social-box">
+      <p><strong>Hlavní trenér:</strong> {{ coach.name }} {{ coach.surname }}</p>
+
+      <div class="position-box mb-2">
+        Pozice v tabulce: <strong>1</strong>
+      </div>
+
+      <div class="socials-wrapper mt-2">
+        <a class="badge-box link" href="https://www.slavia.cz/" target="_blank">www</a>
+        <a href="https://www.instagram.com/slaviapraha/" target="_blank"><img src="icons/instagram.png" class="social-icon" /></a>
+        <a href="https://www.facebook.com/SKSlaviaPrahaFotbal" target="_blank"><img src="icons/facebook.png" class="social-icon" /></a>
+        <a href="https://x.com/slaviaofficial" target="_blank"><img src="icons/x.png" class="social-icon" /></a>
+        <a href="https://www.tiktok.com/@slaviapraha" target="_blank"><img src="icons/tiktok.png" class="social-icon" /></a>
       </div>
     </div>
   </div>

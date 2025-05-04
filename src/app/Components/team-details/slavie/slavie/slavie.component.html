@@ -1,20 +1,16 @@
 <app-navbar></app-navbar>
 
-<div class="container py-4">
-  <!-- Header -->
-  <div class="d-flex justify-content-between align-items-start flex-wrap mb-4">
-    <div class="d-flex align-items-center">
-      <img src="/assets/icons/slavie.png" alt="Slavia logo" class="team-logo me-3" />
-      <div>
-        <h2 class="m-0">{{ team.name }}</h2>
-        <p class="text-muted mb-0">Soupiska:</p>
-      </div>
+<div class="team-container">
+  <div class="header">
+    <img src="icons/slavie.png" alt="Slavia logo" class="team-logo" />
+    <div class="team-info">
+      <h1>{{ team.name }}</h1>
+      <h2>Soupiska:</h2>
     </div>
-
-    <div class="text-end">
-      <p><strong>Hlavní trenér:</strong> {{ coach.name }} {{ coach.surname }}</p>
-      <div class="badge bg-primary mb-2">Pozice v tabulce: 1</div>
-      <div class="social-icons">
+    <div class="coach">
+      <p>Hlavní trenér: <strong>{{ coach.name }} {{ coach.surname }}</strong></p>
+      <p class="position">Pozice v tabulce: <strong>1</strong></p>
+      <div class="socials">
         <a href="#">🌐</a>
         <a href="#">📸</a>
         <a href="#">📘</a>
@@ -24,25 +20,37 @@
     </div>
   </div>
 
-  <!-- Squad -->
-  <div class="row text-center">
-    <div class="col-md-3" *ngFor="let category of [
-      {title: 'Brankáři', list: goalkeepers},
-      {title: 'Obránci', list: defenders},
-      {title: 'Záložníci', list: midfielders},
-      {title: 'Útočníci', list: forwards}
-    ]">
-      <h5 class="pb-2 border-bottom">{{ category.title }}</h5>
-      <ul class="list-unstyled">
-        <li *ngFor="let p of category.list" class="player-item">
-          {{ p.name }} {{ p.surname }}
-        </li>
+  <div class="squad">
+    <div class="category">
+      <h3>Brankáři</h3>
+      <ul>
+        <li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3>Obránci</h3>
+      <ul>
+        <li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3>Záložníci</h3>
+      <ul>
+        <li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h3>Útočníci</h3>
+      <ul>
+        <li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li>
       </ul>
     </div>
   </div>
 
-  <!-- Team info -->
-  <div class="mt-4 ps-3 border-start border-4 border-primary">
+  <div class="stats">
     <p><strong>Počet titulů:</strong> {{ team.leagueTitles }}</p>
     <p><strong>Kapacita stadionu:</strong> {{ team.stadiumCapacity }}</p>
     <p><strong>Počet titulů v Českém poháru:</strong> {{ team.cupTitles }}</p>

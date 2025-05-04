@@ -19,8 +19,24 @@ export class SlavieComponent implements OnInit {
   midfielders: Player[] = [];
   forwards: Player[] = [];
 
-  coach: Coach = { id: 0, name: '', surname: '', nationality: '', teamId: 0 };
-  team: Team = { id: 0, name: '', logo: null, stadium: '', stadiumCapacity: 0, foundationYear: 0, leagueTitles: 0, cupTitles: 0 };
+  coach: Coach = {
+    id: 0,
+    name: '',
+    surname: '',
+    teamId: 0,
+    nationality: ''
+  };
+
+  team: Team = {
+    id: 0,
+    name: '',
+    logo: null,
+    stadium: '',
+    stadiumCapacity: 0,
+    foundationYear: 0,
+    leagueTitles: 0,
+    cupTitles: 0
+  };
 
   constructor(private teamService: TeamService) {}
 
@@ -28,10 +44,10 @@ export class SlavieComponent implements OnInit {
     const teamId = 6;
 
     this.teamService.getPlayersByTeamId(teamId).subscribe(players => {
-      this.goalkeepers = players.filter(p => p.position === 'Goalkeeper');
-      this.defenders = players.filter(p => p.position === 'Defender');
-      this.midfielders = players.filter(p => p.position === 'Midfielder');
-      this.forwards = players.filter(p => p.position === 'Forward');
+      this.goalkeepers = players.filter(p => p.position?.toLowerCase() === 'goalkeeper');
+      this.defenders = players.filter(p => p.position?.toLowerCase() === 'defender');
+      this.midfielders = players.filter(p => p.position?.toLowerCase() === 'midfielder');
+      this.forwards = players.filter(p => p.position?.toLowerCase() === 'forward');
     });
 
     this.teamService.getCoachByTeamId(teamId).subscribe(c => {

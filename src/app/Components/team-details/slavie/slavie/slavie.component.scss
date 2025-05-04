@@ -13,11 +13,9 @@
 
     .team-logo {
       height: 100px;
-
     }
 
     .team-info {
-      flex: 1;
       margin-left: 1rem;
 
       h1 {
@@ -32,85 +30,96 @@
       }
     }
 
-    .coach-social-box {
+    .coach {
       text-align: right;
+      min-width: 240px;
 
-      .position-box {
+      p {
+        margin: 0.3rem 0;
+        font-size: 1.1rem;
+      }
+
+      .coach-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .position {
         background-color: #002a86;
         color: white;
-        padding: 0.3rem 1rem;
         font-weight: bold;
-        border-radius: 6px;
+        padding: 0.25rem 0.8rem;
+        border-radius: 8px;
+      }
+
+      .badge-box.link {
+        background-color: #002a86;
+        color: white;
+        padding: 0.25rem 0.8rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
         display: inline-block;
-        margin-top: 0.3rem;
       }
 
-      .socials-wrapper {
-        margin-top: 0.6rem;
-
-        .badge-box.link {
-          background-color: #002a86;
-          color: white;
-          padding: 0.3rem 1rem;
-          border-radius: 6px;
-          font-weight: bold;
-          text-decoration: none;
-          margin-right: 0.5rem;
-        }
-
-        .social-icon {
-          height: 28px;
-          width: 28px;
-          object-fit: contain;
-          margin-left: 0.4rem;
-        }
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
       }
 
+      .social-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 
-      .squad {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-        margin-top: 2rem;
+  .squad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
 
-        .category {
-          h3 {
-            text-align: center;
-            font-size: 1.2rem;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 0.3rem;
-            margin-bottom: 0.5rem;
-          }
-
-          ul {
-            list-style: none;
-            padding: 0;
-
-            li {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              background-color: #f1f1f1;
-              padding: 0.5rem 0.75rem;
-              border-radius: 10px;
-              margin-bottom: 0.4rem;
-              font-size: 0.95rem;
-              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            }
-          }
-        }
+    .category {
+      h3 {
+        text-align: center;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
       }
 
-      .stats {
-        margin-top: -15.5rem;
-        font-size: 1rem;
-        border-left: 4px solid #002a86;
-        padding-left: 1rem;
+      ul {
+        list-style: none;
+        padding: 0;
 
-        p {
-          margin: 0.3rem 0;
+        li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #f1f1f1;
+          padding: 0.5rem 0.75rem;
+          border-radius: 10px;
+          margin-bottom: 0.4rem;
+          font-size: 0.95rem;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
       }
+    }
+  }
+
+  .stats {
+    margin-top: -10.5rem;
+    font-size: 1rem;
+    border-left: 4px solid #002a86;
+    padding-left: 1rem;
+
+    p {
+      margin: 0.3rem 0;
     }
   }
 }

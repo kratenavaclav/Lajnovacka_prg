@@ -1,70 +1,51 @@
-// Globální proměnné
-$primary-color: #0a2952;
-$secondary-color: #e63946;
-$table-header-bg: $primary-color;
-$table-row-bg: #ffffff;
-$table-border-color: #cccccc;
+.table-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
-// Kontejner stránky
-.scorers-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background-color: $table-row-bg;
-
-  .page-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: $primary-color;
+  h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #0d2b5e;
   }
 
-  .scorers-table {
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
 
-    .table-header {
-      background-color: $table-header-bg;
+    thead {
+      background-color: #0d2b5e;
       color: white;
-      padding: 10px;
-      font-size: 18px;
-      text-align: center;
-      font-weight: bold;
+
+      th {
+        padding: 0.75rem;
+        text-align: left;
+      }
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    tbody {
+      tr {
+        border-bottom: 1px solid #ccc;
 
-      thead {
-        background-color: $table-header-bg;
-
-        th {
-          color: white;
-          padding: 10px;
-          text-align: center;
-          font-size: 14px;
+        &:nth-child(even) {
+          background-color: #f9f9f9;
         }
-      }
 
-      tbody {
-        tr {
-          background-color: $table-row-bg;
+        td {
+          padding: 0.75rem;
+        }
 
-          &:nth-child(even) {
-            background-color: lighten($table-row-bg, 5%);
-          }
+        a {
+          color: #002a86;
+          text-decoration: none;
 
-          td {
-            padding: 10px;
-            text-align: center;
-
-            img {
-              width: 20px; /* Velikost vlajky */
-              margin-right: 5px; /* Mezera mezi vlajkou a textem */
-            }
+          &:hover {
+            text-decoration: underline;
           }
         }
       }

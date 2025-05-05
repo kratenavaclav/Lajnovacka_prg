@@ -14,6 +14,9 @@ export class TeamService {
 
   constructor(private http: HttpClient) {}
 
+  getAllPlayers(): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playersUrl);
+  }
   getPlayersByTeamId(teamId: number): Observable<Player[]> {
     return this.http.get<Player[]>(this.playersUrl).pipe(
       map(players => players.filter(p => p.teamId === teamId))

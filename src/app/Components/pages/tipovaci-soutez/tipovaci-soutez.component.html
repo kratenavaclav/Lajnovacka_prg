@@ -1,128 +1,70 @@
 <app-navbar></app-navbar>
 <div class="container">
+  <!-- Levý panel se zápasy -->
   <div class="matches-panel">
-    <div class="match-box">
+    <div
+      class="match-box"
+      *ngFor="let match of matches"
+      (click)="selectMatch(match)"
+      [class.active]="match === selectedMatch"
+    >
       <div class="match-date">
-        <p>15.03.2025</p>
-        <p>19:00</p>
+        <p>{{ match.date }}</p>
+        <p>{{ match.time }}</p>
       </div>
       <div class="match-teams">
         <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
+          <img [src]="match.homeTeam.logo" [alt]="match.homeTeam.name">
         </div>
         <span class="versus">X</span>
         <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
-        </div>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <div class="match-date">
-        <p>20.3.2025</p>
-        <p>18:45</p>
-      </div>
-      <div class="match-teams">
-        <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
-        </div>
-        <span class="versus">X</span>
-        <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
-        </div>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <div class="match-date">
-        <p>20.3.2025</p>
-        <p>18:45</p>
-      </div>
-      <div class="match-teams">
-        <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
-        </div>
-        <span class="versus">X</span>
-        <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
-        </div>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <div class="match-date">
-        <p>20.3.2025</p>
-        <p>18:45</p>
-      </div>
-      <div class="match-teams">
-        <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
-        </div>
-        <span class="versus">X</span>
-        <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
-        </div>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <div class="match-date">
-        <p>1.4.2025</p>
-        <p>17:30</p>
-      </div>
-      <div class="match-teams">
-        <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
-        </div>
-        <span class="versus">X</span>
-        <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
-        </div>
-      </div>
-    </div>
-
-    <div class="match-box">
-      <div class="match-date">
-        <p>5.4.2025</p>
-        <p>12:00</p>
-      </div>
-      <div class="match-teams">
-        <div class="team-logo sparta">
-          <img src="icons/sparta.png" alt="Sparta">
-        </div>
-        <span class="versus">X</span>
-        <div class="team-logo slavia">
-          <img src="icons/slavie.png" alt="Slavia">
+          <img [src]="match.awayTeam.logo" [alt]="match.awayTeam.name">
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Pravý panel s tipem -->
   <div class="betting-panel">
     <h2 class="panel-title">Tipovačka</h2>
     <p class="round-info">10. kolo</p>
 
     <div class="match-highlight">
       <div class="match-date">
-        <p>15.03.2025 19:00</p>
+        <p>{{ selectedMatch.date }} {{ selectedMatch.time }}</p>
       </div>
       <div class="match-teams large">
         <div class="team-logo sparta large">
-          <img src="icons/sparta.png" alt="Sparta">
+          <img [src]="selectedMatch.homeTeam.logo" [alt]="selectedMatch.homeTeam.name">
         </div>
         <span class="versus large">X</span>
         <div class="team-logo slavia large">
-          <img src="icons/slavie.png" alt="Slavia">
+          <img [src]="selectedMatch.awayTeam.logo" [alt]="selectedMatch.awayTeam.name">
         </div>
       </div>
 
       <div class="betting-buttons">
-        <button class="bet-btn win-home">Výhra</button>
-        <button class="bet-btn draw">Remíza</button>
-        <button class="bet-btn win-away">Výhra</button>
+        <button
+          class="bet-btn win-home"
+          [class.active]="selectedMatch.selectedResult === 'home'"
+          (click)="selectResult('home')"
+        >Výhra</button>
+
+        <button
+          class="bet-btn draw"
+          [class.active]="selectedMatch.selectedResult === 'draw'"
+          (click)="selectResult('draw')"
+        >Remíza</button>
+
+        <button
+          class="bet-btn win-away"
+          [class.active]="selectedMatch.selectedResult === 'away'"
+          (click)="selectResult('away')"
+        >Výhra</button>
       </div>
     </div>
 
     <button class="my-bets-btn">Moje sázečky</button>
   </div>
 </div>
+

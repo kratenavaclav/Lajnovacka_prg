@@ -3,7 +3,7 @@
 <div class="team-container">
   <div class="header">
     <div class="d-flex align-items-center">
-      <img src="icons/slavie.png" alt="Slavia logo" class="team-logo" />
+      <img [src]="'icons/' + team.name.toLowerCase() + '.png'" alt="{{ team.name }} logo" class="team-logo" />
       <div class="team-info">
         <h1>{{ team.name }}</h1>
         <h2>Soupiska:</h2>
@@ -14,13 +14,13 @@
       <p><strong>Hlavní trenér:</strong> {{ coach.name }} {{ coach.surname }}</p>
 
       <div class="coach-controls">
-        <span class="position">Pozice v tabulce: 1</span>
+        <span class="position">Pozice v tabulce: ?</span>
         <div class="social-icons">
-          <a class="badge-box link" href="https://www.slavia.cz/" target="_blank">www</a>
-          <a href="https://www.instagram.com/slaviapraha/" target="_blank"><img src="icons/instagram.png" class="social-icon" /></a>
-          <a href="https://www.facebook.com/SKSlaviaPrahaFotbal" target="_blank"><img src="icons/facebook.png" class="social-icon" /></a>
-          <a href="https://x.com/slaviaofficial" target="_blank"><img src="icons/x.png" class="social-icon" /></a>
-          <a href="https://www.tiktok.com/@slaviapraha" target="_blank"><img src="icons/tiktok.png" class="social-icon" /></a>
+          <a class="badge-box link" href="#" target="_blank">www</a>
+          <a href="#" target="_blank"><img src="icons/instagram.png" class="social-icon" /></a>
+          <a href="#" target="_blank"><img src="icons/facebook.png" class="social-icon" /></a>
+          <a href="#" target="_blank"><img src="icons/x.png" class="social-icon" /></a>
+          <a href="#" target="_blank"><img src="icons/tiktok.png" class="social-icon" /></a>
         </div>
       </div>
     </div>
@@ -29,30 +29,22 @@
   <div class="squad">
     <div class="category">
       <h3>Brankáři</h3>
-      <ul>
-        <li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li>
-      </ul>
+      <ul><li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li></ul>
     </div>
 
     <div class="category">
       <h3>Obránci</h3>
-      <ul>
-        <li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li>
-      </ul>
+      <ul><li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li></ul>
     </div>
 
     <div class="category">
       <h3>Záložníci</h3>
-      <ul>
-        <li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li>
-      </ul>
+      <ul><li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li></ul>
     </div>
 
     <div class="category">
       <h3>Útočníci</h3>
-      <ul>
-        <li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li>
-      </ul>
+      <ul><li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li></ul>
     </div>
   </div>
 

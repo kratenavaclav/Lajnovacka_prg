@@ -4,15 +4,16 @@
   <div class="navbar-menu">
     <a class="nav-item" routerLink="/tabulka-ligy" routerLinkActive="active">Tabulka Ligy</a>
     <a class="nav-item" routerLink="/tabulka-strelcu" routerLinkActive="active">Tabulka střelců</a>
-    <app-sidebar></app-sidebar>
+    <a class="nav-item" (click)="toggleTeamList()">Týmy</a>
     <a class="nav-item" routerLink="/tipovaci-soutez" routerLinkActive="active">Tipovací soutěž</a>
     <a class="nav-item" routerLink="/diskuze" routerLinkActive="active">Diskuze</a>
   </div>
 
   <div class="navbar-auth">
-    <!-- Tlačítko pro přihlášení -->
     <button class="btn btn-login" routerLink="/prihlaseni">Přihlásit</button>
-    <!-- Tlačítko pro registraci -->
     <button class="btn btn-register" routerLink="/registrace">Registrace</button>
   </div>
 </nav>
+
+<!-- Zde se zobrazí lišta s logy týmů -->
+<app-team-list *ngIf="showTeamList"></app-team-list>

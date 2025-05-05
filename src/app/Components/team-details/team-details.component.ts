@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../../navbar/navbar.component';
+import { NavbarComponent } from 'app/Components/navbar/navbar.component';
 import { TeamService } from 'app/services/teams/team-service';
 import { Player } from 'app/models/player/model';
 import { Coach } from 'app/models/coach/model';
 import { Team } from 'app/models/teams/models';
 
 @Component({
-  selector: 'app-liberec',
+  selector: 'app-team-details',
   standalone: true,
   imports: [CommonModule, NavbarComponent],
-  templateUrl: './liberec.component.html',
-  styleUrls: ['./liberec.component.scss']
+  templateUrl: './team-details.component.html',
+  styleUrls: ['./team-details.component.scss']
 })
-export class LiberecComponent implements OnInit {
+export class TeamDetailsComponent implements OnInit {
   goalkeepers: Player[] = [];
   defenders: Player[] = [];
   midfielders: Player[] = [];
@@ -38,11 +39,10 @@ export class LiberecComponent implements OnInit {
     cupTitles: 0
   };
 
-  constructor(private teamService: TeamService) {}
+  constructor(private route: ActivatedRoute, private teamService: TeamService) {}
 
   ngOnInit(): void {
-    const teamId = 1;
-
+    const teamId = +this.route.snapshot.paramMap.get('teamId')!;
     this.teamService.getPlayersByTeamId(teamId).subscribe(players => {
       this.goalkeepers = players.filter(p => p.position?.toLowerCase() === 'goalkeeper');
       this.defenders = players.filter(p => p.position?.toLowerCase() === 'defender');

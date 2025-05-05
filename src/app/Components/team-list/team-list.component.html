@@ -1,7 +1,9 @@
-
 <div class="team-bar">
-  <a *ngFor="let team of teams" [routerLink]="['/teams', team.id]" title="{{ team.name }}">
-    <img [src]="team.icon" [alt]="team.name" />
+  <a
+    *ngFor="let team of teams"
+    [routerLink]="['/teams', team.id]"
+    title="{{ team.name }}"
+  >
+    <img [src]="team.logo" [alt]="team.name" />
   </a>
 </div>
-

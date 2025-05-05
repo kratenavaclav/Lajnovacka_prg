@@ -1,7 +1,7 @@
 export interface Team {
   id: number;
   name: string;
-  logo: string | null;
+  logo: string ;
   stadium: string;
   foundationYear: number;
   stadiumCapacity: number;

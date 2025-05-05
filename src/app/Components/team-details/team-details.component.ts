@@ -42,20 +42,23 @@ export class TeamDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private teamService: TeamService) {}
 
   ngOnInit(): void {
-    const teamId = +this.route.snapshot.paramMap.get('teamId')!;
-    this.teamService.getPlayersByTeamId(teamId).subscribe(players => {
-      this.goalkeepers = players.filter(p => p.position?.toLowerCase() === 'goalkeeper');
-      this.defenders = players.filter(p => p.position?.toLowerCase() === 'defender');
-      this.midfielders = players.filter(p => p.position?.toLowerCase() === 'midfielder');
-      this.forwards = players.filter(p => p.position?.toLowerCase() === 'forward');
-    });
+    this.route.paramMap.subscribe(params => {
+      const teamId = +params.get('teamId')!;
 
-    this.teamService.getCoachByTeamId(teamId).subscribe(c => {
-      if (c) this.coach = c;
-    });
+      this.teamService.getPlayersByTeamId(teamId).subscribe(players => {
+        this.goalkeepers = players.filter(p => p.position?.toLowerCase() === 'goalkeeper');
+        this.defenders = players.filter(p => p.position?.toLowerCase() === 'defender');
+        this.midfielders = players.filter(p => p.position?.toLowerCase() === 'midfielder');
+        this.forwards = players.filter(p => p.position?.toLowerCase() === 'forward');
+      });
 
-    this.teamService.getTeamById(teamId).subscribe(t => {
-      if (t) this.team = t;
+      this.teamService.getCoachByTeamId(teamId).subscribe(c => {
+        if (c) this.coach = c;
+      });
+
+      this.teamService.getTeamById(teamId).subscribe(t => {
+        if (t) this.team = t;
+      });
     });
   }
 }

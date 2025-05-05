@@ -26,6 +26,9 @@ export class TeamService {
     );
   }
 
+  getAllTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>(this.teamsUrl);
+  }
   getTeamById(teamId: number): Observable<Team | undefined> {
     return this.http.get<Team[]>(this.teamsUrl).pipe(
       map(teams => teams.find(t => t.id === teamId))

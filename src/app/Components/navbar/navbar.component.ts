@@ -1,12 +1,12 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { SidebarComponent } from '../team-list/team-list.component';
+import { TeamListComponent } from '../team-list/team-list.component';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, SidebarComponent, NgIf],
+  imports: [RouterLink, TeamListComponent, NgIf],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })

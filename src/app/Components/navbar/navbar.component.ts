@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SidebarComponent } from '../team-list/team-list.component';
 import { NgIf } from '@angular/common';
@@ -13,8 +13,22 @@ import { NgIf } from '@angular/common';
 export class NavbarComponent {
   showTeamList = false;
 
+  constructor(private eRef: ElementRef) {}
+
   toggleTeamList() {
     this.showTeamList = !this.showTeamList;
+  }
+
+  // Kliknutí mimo komponentu = zavřít týmovou lištu
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    const target = event.target as HTMLElement;
+    const clickedInsideNavbar = this.eRef.nativeElement.contains(target);
+    const clickedOnTeamIcon = target.closest('.team-bar');
+
+    if (!clickedInsideNavbar && !clickedOnTeamIcon) {
+      this.showTeamList = false;
+    }
   }
 
   showModal = false;

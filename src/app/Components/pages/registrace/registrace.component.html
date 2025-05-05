@@ -2,42 +2,43 @@
   <div class="login-box">
     <div class="login-content">
       <div class="logo-section">
-        <img src="icons/logo.png" alt="Fotbalový míč" class="football-logo">
+        <img src="icons/logo.png" alt="Fotbalový míč" class="football-logo" />
       </div>
       <div class="form-section">
         <h1 class="title">Registrace</h1>
 
         <div class="form-group">
-          <label for="firstName">Jméno</label>
-          <input type="text" id="firstName" placeholder="Zadej jméno" class="form-control">
+          <label for="name">Jméno</label>
+          <input [(ngModel)]="name" name="name" id="name" placeholder="Zadej jméno" class="form-control" />
         </div>
 
         <div class="form-group">
-          <label for="lastName">Příjmení</label>
-          <input type="text" id="lastName" placeholder="Zadej příjmení" class="form-control">
+          <label for="surname">Příjmení</label>
+          <input [(ngModel)]="surname" name="surname" id="surname" placeholder="Zadej příjmení" class="form-control" />
         </div>
 
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="Zadej e-mail" class="form-control">
+          <input [(ngModel)]="email" name="email" id="email" type="email" placeholder="Zadej e-mail" class="form-control" />
         </div>
 
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="email" id="username" placeholder="Zadej username" class="form-control">
+          <input [(ngModel)]="username" name="username" id="username" placeholder="Zadej username" class="form-control" />
         </div>
 
         <div class="form-group">
           <label for="password">Heslo</label>
-          <input type="password" id="password" placeholder="Zadej heslo" class="form-control">
+          <input [(ngModel)]="password" name="password" type="password" id="password" placeholder="Zadej heslo" class="form-control" />
         </div>
 
         <div class="form-group">
           <label for="confirmPassword">Heslo znovu</label>
-          <input type="password" id="confirmPassword" placeholder="Zadej heslo znovu" class="form-control">
+          <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" id="confirmPassword" placeholder="Zadej heslo znovu" class="form-control" />
         </div>
 
-        <button type="button" class="btn-login">Zaregistrovat se</button>
+        <p *ngIf="error" class="error">{{ error }}</p>
+        <button (click)="register()" class="btn-login">Zaregistrovat se</button>
       </div>
     </div>
   </div>

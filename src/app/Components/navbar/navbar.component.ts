@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
 import { TeamListComponent } from '../team-list/team-list.component';
 import { NgIf } from '@angular/common';
+import { AuthService } from 'app/services/auth/auth-service'
 
 @Component({
   selector: 'app-navbar',
@@ -10,16 +11,27 @@ import { NgIf } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   showTeamList = false;
+  username: string | null = null;
 
-  constructor(private eRef: ElementRef) {}
+  constructor(private eRef: ElementRef, private auth: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    const info = this.auth.getUserInfo();
+    this.username = info?.username || null;
+  }
 
   toggleTeamList() {
     this.showTeamList = !this.showTeamList;
   }
 
-  // Kliknutí mimo komponentu = zavřít týmovou lištu
+  logout() {
+    this.auth.logout();
+    this.username = null;
+    this.router.navigate(['/']);
+  }
+
   @HostListener('document:click', ['$event'])
   handleClickOutside(event: Event) {
     const target = event.target as HTMLElement;
@@ -29,17 +41,5 @@ export class NavbarComponent {
     if (!clickedInsideNavbar && !clickedOnTeamIcon) {
       this.showTeamList = false;
     }
-  }
-
-  showModal = false;
-  modalType: 'prihlaseni' | 'registrace' = 'prihlaseni';
-
-  openModal(type: 'prihlaseni' | 'registrace') {
-    this.modalType = type;
-    this.showModal = true;
-  }
-
-  closeModal() {
-    this.showModal = false;
   }
 }

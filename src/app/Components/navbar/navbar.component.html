@@ -9,11 +9,16 @@
     <a class="nav-item" routerLink="/diskuze" routerLinkActive="active">Diskuze</a>
   </div>
 
-  <div class="navbar-auth">
+  <div class="navbar-auth" *ngIf="!username">
     <button class="btn btn-login" routerLink="/prihlaseni">Přihlásit</button>
     <button class="btn btn-register" routerLink="/registrace">Registrace</button>
   </div>
-</nav>
 
-<!-- Zde se zobrazí lišta s logy týmů -->
-<app-team-list *ngIf="showTeamList"></app-team-list>
+  <div class="navbar-auth" *ngIf="username">
+    <span style="color: white;">Přihlášen: {{ username }}</span>
+    <button class="btn btn-login" (click)="logout()">Odhlásit</button>
+  </div>
+
+  <!-- 🔽 Lišta s logy týmů přímo pod navbar -->
+  <app-team-list *ngIf="showTeamList"></app-team-list>
+</nav>

@@ -1,41 +1,32 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/services/auth/auth-service'
 
 @Component({
   selector: 'app-prihlaseni',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './prihlaseni.component.html',
   styleUrls: ['./prihlaseni.component.scss']
 })
 export class PrihlaseniComponent {
+  username = '';
+  password = '';
+  error: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
-  navigateToHome() {
-    this.router.navigate(['/']);
-  }
-
-  /*getNotesFromApi(groupId: number): Observable<any[]> {
-    return this.http.get<any[]>(${environment.apiUrl}/api/groups/${groupId}/notes);
-  }
-  loadData() {
-    this.route.parent?.paramMap.subscribe(params => {
-      this.groupId = Number(params.get('groupId'));
-    });
-
-    this.loadNotes();
-  }
-
-  loadNotes() {
-    this.noteService.getNotesFromApi(this.groupId).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.notes = response.map(n => new Note(n.id, n.name, n.value, n.color));
+  login(): void {
+    this.auth.login({ username: this.username, password: this.password }).subscribe({
+      next: (res) => {
+        this.auth.saveToken(res.token);
+        this.router.navigate(['/']);
       },
-      error: (error) => {
-        console.error('Chyba při načítání dat z API:', error);
+      error: () => {
+        this.error = 'Neplatné přihlašovací údaje';
       }
     });
   }
-}
-*/
 }

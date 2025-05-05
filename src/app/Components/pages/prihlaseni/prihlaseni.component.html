@@ -2,33 +2,23 @@
   <div class="login-box">
     <div class="login-content">
       <div class="logo-section">
-        <img src="icons/logo.png" alt="Fotbalový míč" class="football-logo">
+        <img src="icons/logo.png" alt="Fotbalový míč" class="football-logo" />
       </div>
       <div class="form-section">
         <h1 class="title">Přihlášení</h1>
 
         <div class="form-group">
-          <label for="email">Username</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Zadej username"
-            class="form-control">
+          <label for="username">Username</label>
+          <input [(ngModel)]="username" name="username" id="username" placeholder="Zadej username" class="form-control" />
         </div>
 
         <div class="form-group">
           <label for="password">Heslo</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Zadej heslo"
-            class="form-control">
-          <div class="forgot-password">
-            <a href="#">Zapomenuté heslo?</a>
-          </div>
+          <input [(ngModel)]="password" name="password" type="password" id="password" placeholder="Zadej heslo" class="form-control" />
         </div>
 
-        <button type="button" class="btn-login">Přihlásit se</button>
+        <p *ngIf="error" class="error">{{ error }}</p>
+        <button (click)="login()" class="btn-login">Přihlásit se</button>
       </div>
     </div>
   </div>

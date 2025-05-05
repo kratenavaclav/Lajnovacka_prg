@@ -15,6 +15,7 @@ $white: rgba(255, 255, 255, 1);
   align-items: center;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 
   // Logo v navigaci
   &-logo {
@@ -98,6 +99,13 @@ $white: rgba(255, 255, 255, 1);
     &-auth {
       width: 100%;
       justify-content: center;
+
+      .navbar-wrapper {
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
     }
   }
 }

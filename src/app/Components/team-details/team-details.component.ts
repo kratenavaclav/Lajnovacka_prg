@@ -31,7 +31,7 @@ export class TeamDetailsComponent implements OnInit {
   team: Team = {
     id: 0,
     name: '',
-    logo: null,
+    logo: '',
     stadium: '',
     stadiumCapacity: 0,
     foundationYear: 0,

@@ -1,42 +1,29 @@
 <app-navbar></app-navbar>
 
-<div class="discussion-container">
-  <!-- LEVÁ ČÁST: statický chat -->
-  <div class="chat-section">
+<div class="chat-wrapper">
+
+  <div class="chat-container">
     <div class="chat-header">
-      <div class="user-info">
-        <p class="username">Fotbalový maniak</p>
-        <p class="status">Online</p>
-      </div>
-      <span class="menu-icon">⋮</span>
+      <h2>Diskuze: {{ selectedTeam || 'Vyber tým' }}</h2>
     </div>
-
     <div class="chat-messages">
-      <div class="message incoming">
-        <p>Jak hodnotíš dnešní zápas?</p>
-        <span class="time">14:30</span>
-      </div>
-
-      <div class="message outgoing">
-        <p>Myslím, že to bylo docela napínavé utkání!</p>
-        <span class="time">14:35</span>
-      </div>
-
-      <div class="message outgoing">
-        <p>Souhlasím, brankář byl dnes hvězdou.</p>
-        <span class="time">14:40</span>
+      <div *ngFor="let msg of messages" class="message">
+        <div class="message-text">{{ msg }}</div>
       </div>
     </div>
-
     <div class="chat-input">
-      <input type="text" placeholder="Napište zprávu" />
-      <button>📎</button>
+      <input [(ngModel)]="newMessage" type="text" placeholder="Napište zprávu" (keyup.enter)="sendMessage()" />
+      <button (click)="sendMessage()">Odeslat</button>
     </div>
   </div>
 
-  <!-- PRAVÁ ČÁST: statický text -->
-  <div class="feed-section">
-    <h2>Pro vás</h2>
-    <p>Tady bude obsah doporučený přímo pro tebe.</p>
+
+  <div class="teams-container">
+    <h3>Vyber tým</h3>
+    <ul>
+      <li *ngFor="let team of teams" (click)="selectTeam(team)">
+        {{ team }}
+      </li>
+    </ul>
   </div>
 </div>

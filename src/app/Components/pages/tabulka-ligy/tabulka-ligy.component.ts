@@ -1,14 +1,56 @@
-import { Component } from '@angular/core';
-import {NavbarComponent} from "../../navbar/navbar.component";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from 'app/Components/navbar/navbar.component';
+import { HttpClient } from '@angular/common/http';
+import { Team } from 'app/models/teams/models';
+import { TeamService } from 'app/services/teams/team-service';
+
+interface TeamStats {
+  teamId: number;
+  played: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  points: number;
+}
 
 @Component({
   selector: 'app-tabulka-ligy',
-    imports: [
-        NavbarComponent
-    ],
+  standalone: true,
+  imports: [CommonModule, RouterModule, NavbarComponent],
   templateUrl: './tabulka-ligy.component.html',
-  styleUrl: './tabulka-ligy.component.scss'
+  styleUrls: ['./tabulka-ligy.component.scss']
 })
-export class TabulkaLigyComponent {
+export class TabulkaLigyComponent implements OnInit {
+  table: TeamStats[] = [];
+  teams: Team[] = [];
 
+  constructor(
+    private http: HttpClient,
+    private teamService: TeamService
+  ) {}
+
+  ngOnInit(): void {
+    this.teamService.getAllTeams().subscribe(t => this.teams = t);
+
+    this.http.get<TeamStats[]>('http://localhost:5044/api/matches/league-table')
+      .subscribe(data => {
+        this.table = data;
+      });
+  }
+
+  getTeam(teamId: number): Team | undefined {
+    return this.teams.find(t => t.id === teamId);
+  }
+
+  getTeamName(teamId: number): string {
+    return this.getTeam(teamId)?.name || '';
+  }
+
+  getTeamLogo(teamId: number): string {
+    return this.getTeam(teamId)?.logo || '';
+  }
 }

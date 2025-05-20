@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 import { Player } from 'app/models/player/model';
 import { Team } from 'app/models/teams/models';
 import { TeamService } from 'app/services/teams/team-service';
-import { NavbarComponent } from 'app/Components/navbar/navbar.component';
+
 
 @Component({
   selector: 'app-tabulka-strelcu',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent],
+  imports: [CommonModule, RouterModule,],
   templateUrl: './tabulka-strelcu.component.html',
   styleUrls: ['./tabulka-strelcu.component.scss']
 })

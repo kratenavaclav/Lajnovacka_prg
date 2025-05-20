@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from 'app/Components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
 import { Team } from 'app/models/teams/models';
 import { TeamService } from 'app/services/teams/team-service';
@@ -20,7 +19,7 @@ interface TeamStats {
 @Component({
   selector: 'app-tabulka-ligy',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarComponent],
+  imports: [CommonModule, RouterModule,],
   templateUrl: './tabulka-ligy.component.html',
   styleUrls: ['./tabulka-ligy.component.scss']
 })

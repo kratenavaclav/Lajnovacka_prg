@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { TabulkaLigyComponent } from '../tabulka-ligy/tabulka-ligy.component';
 import { TabulkaStrelcuComponent } from '../tabulka-strelcu/tabulka-strelcu.component';
 
 @Component({
-  selector: 'app-hlavni-stranka',
+  selector: 'app-tabulka-strelcu-page',
   standalone: true,
   imports: [
     CommonModule,
     NavbarComponent,
-    TabulkaLigyComponent,
     TabulkaStrelcuComponent
   ],
-  templateUrl: './hlavni-stranka.component.html',
-  styleUrls: ['./hlavni-stranka.component.scss']
+  templateUrl: './tabulka-strelcu-page.component.html',
+  styleUrls: ['./tabulka-strelcu-page.component.scss']
 })
-export class HlavniStrankaComponent {}
+export class TabulkaStrelcuPageComponent {}

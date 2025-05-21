@@ -53,3 +53,6 @@ export class TabulkaLigyComponent implements OnInit {
     return this.getTeam(teamId)?.logo || '';
   }
 }
+
+
+

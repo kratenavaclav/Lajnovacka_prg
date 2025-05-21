@@ -3,29 +3,25 @@
 <div class="main-content">
   <!-- Zápasy nahoře -->
   <div class="matches">
-    <h2>Aktuální kolo</h2>
+    <h2><i class="bi bi-calendar3"></i> Poslední odehrané zápasy</h2>
     <div class="match-cards">
-      <div class="match-card">
-        <div class="match-date">08.03.2025 19:00</div>
-        <div class="match-result"><strong>Sparta</strong> 2:0 <strong>Slavia</strong></div>
-        <div class="match-location">epet ARÉNA</div>
-      </div>
-      <div class="match-card">
-        <div class="match-date">15.03.2025 19:00</div>
-        <div class="match-result"><strong>Sparta</strong> 0:1 <strong>Liberec</strong></div>
-        <div class="match-location">Stadion U Nisy</div>
+      <div class="match-card" *ngFor="let match of matches">
+        <div class="match-date">{{ match.date | date: 'dd.MM.yyyy HH:mm' }}</div>
+        <div class="match-result">
+          <strong>{{ match.homeTeam }}</strong>
+          {{ match.homeScore }}:{{ match.awayScore }}
+          <strong>{{ match.awayTeam }}</strong>
+        </div>
+        <div class="match-location">{{ match.stadium }}</div>
       </div>
     </div>
   </div>
 
   <!-- Dvě spodní části vedle sebe -->
   <div class="tables-container">
-    <!-- Levá tabulka -->
     <div class="scroll-box">
       <app-tabulka-ligy></app-tabulka-ligy>
     </div>
-
-    <!-- Pravá tabulka -->
     <div class="scroll-box">
       <app-tabulka-strelcu></app-tabulka-strelcu>
     </div>

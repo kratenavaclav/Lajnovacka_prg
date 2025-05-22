@@ -29,22 +29,38 @@
   <div class="squad">
     <div class="category">
       <h3>Brankáři</h3>
-      <ul><li *ngFor="let p of goalkeepers">{{ p.name }} {{ p.surname }}</li></ul>
+      <ul>
+        <li *ngFor="let p of goalkeepers">
+          <a [routerLink]="['/hraci', p.id]">{{ p.name }} {{ p.surname }}</a>
+        </li>
+      </ul>
     </div>
 
     <div class="category">
       <h3>Obránci</h3>
-      <ul><li *ngFor="let p of defenders">{{ p.name }} {{ p.surname }}</li></ul>
+      <ul>
+        <li *ngFor="let p of defenders">
+          <a [routerLink]="['/hraci', p.id]">{{ p.name }} {{ p.surname }}</a>
+        </li>
+      </ul>
     </div>
 
     <div class="category">
       <h3>Záložníci</h3>
-      <ul><li *ngFor="let p of midfielders">{{ p.name }} {{ p.surname }}</li></ul>
+      <ul>
+        <li *ngFor="let p of midfielders">
+          <a [routerLink]="['/hraci', p.id]">{{ p.name }} {{ p.surname }}</a>
+        </li>
+      </ul>
     </div>
 
     <div class="category">
       <h3>Útočníci</h3>
-      <ul><li *ngFor="let p of forwards">{{ p.name }} {{ p.surname }}</li></ul>
+      <ul>
+        <li *ngFor="let p of forwards">
+          <a [routerLink]="['/hraci', p.id]">{{ p.name }} {{ p.surname }}</a>
+        </li>
+      </ul>
     </div>
   </div>
 

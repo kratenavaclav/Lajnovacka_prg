@@ -1,0 +1,13 @@
+<ng-container *ngIf="player as p; else loading">
+  <div class="player-card">
+    <h1>{{ p.name }} {{ p.surname }}</h1>
+    <p><strong>Národnost:</strong> {{ p.nationality }}</p>
+    <p><strong>Tým:</strong> {{ teamName }}</p>
+    <p><strong>Góly:</strong> {{ p.goals }}</p>
+    <p><strong>Asistence:</strong> {{ p.assists }}</p>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <p>Načítání hráče...</p>
+</ng-template>

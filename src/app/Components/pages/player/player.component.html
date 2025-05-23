@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="player-page">
+  <div class="player-header">
+    <div class="team-logo">
+      <img [src]="teamLogo" [alt]="teamName" />
+    </div>
+    <div class="player-info">
+      <h1>{{ player?.name }} {{ player?.surname }}</h1>
+      <button class="back-button" [routerLink]="['/teams', player?.teamId]">Zpět na soupisku</button>
+    </div>
+  </div>
+
+  <div class="player-details-grid" *ngIf="player">
+    <div class="detail-box">
+      <h3>Národnost</h3>
+      <p>{{ player.nationality }}</p>
+    </div>
+    <div class="detail-box">
+      <h3>Tým</h3>
+      <p>{{ teamName }}</p>
+    </div>
+    <div class="detail-box">
+      <h3>Góly</h3>
+      <p>{{ player.goals }}</p>
+    </div>
+    <div class="detail-box">
+      <h3>Asistence</h3>
+      <p>{{ player.assists }}</p>
+    </div>
+  </div>
+</div>

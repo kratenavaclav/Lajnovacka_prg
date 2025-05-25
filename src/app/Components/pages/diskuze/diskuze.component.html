@@ -6,27 +6,37 @@
   </div>
 
   <div class="diskuze-content">
+    <!-- Levý sloupec: komentáře -->
     <div class="comment-column">
       <div *ngIf="selectedTeamId">
         <h2>Komentáře k týmu: {{ selectedTeamName }}</h2>
 
+        <!-- Komentáře -->
         <div *ngFor="let comment of comments" class="comment-box">
-          <p class="comment-user">{{ getUsername(comment.userId) }}</p>
+          <p class="comment-user">
+            {{ getUsername(comment.userId) }}
+            <span *ngIf="comment.userId === userId" class="comment-actions">
+              <button (click)="deleteComment(comment.id!)">Smazat</button>
+            </span>
+          </p>
           <p class="comment-content">{{ comment.content }}</p>
-          <p class="comment-date">{{ comment.createdAt | date: 'short' }}</p>
+          <p class="comment-date">Odesláno: {{ comment.createdAt | date: 'd. M. y, HH:mm' }}</p>
         </div>
 
+        <!-- Formulář pro přihlášené -->
         <div *ngIf="isLoggedIn; else loginPrompt" class="comment-form">
           <textarea [(ngModel)]="newComment" rows="3" placeholder="Napiš komentář..."></textarea>
           <button (click)="submitComment()">Odeslat</button>
         </div>
 
+        <!-- Výzva pro nepřihlášené -->
         <ng-template #loginPrompt>
           <p class="login-warning">Pro přidání komentáře se musíš přihlásit.</p>
         </ng-template>
       </div>
     </div>
 
+    <!-- Pravý sloupec: výběr týmu -->
     <div class="team-column">
       <h3>Týmy</h3>
       <ul>

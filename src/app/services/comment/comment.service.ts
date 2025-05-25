@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comment } from 'app/models/comment/model'; // správná cesta k modelu
+import { Comment } from 'app/models/comment/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentService {
-  private apiUrl = 'http://localhost:5044/api/comments'; // uprav dle svého backendu
+  private apiUrl = 'http://localhost:5044/api/comments'; // uprav podle potřeby
 
   constructor(private http: HttpClient) {}
 
   /**
-   * Načte komentáře podle ID týmu
+   * Načti všechny komentáře k danému týmu
    */
   getCommentsByTeam(teamId: number): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiUrl}/team/${teamId}`);
   }
 
   /**
-   * Přidá nový komentář
+   * Přidej nový komentář
    */
   addComment(comment: Comment): Observable<Comment> {
     return this.http.post<Comment>(this.apiUrl, comment);
+  }
+
+  /**
+   * Smaž komentář podle ID
+   */
+  deleteComment(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

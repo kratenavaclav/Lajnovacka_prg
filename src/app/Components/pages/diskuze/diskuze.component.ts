@@ -8,7 +8,7 @@ import { CommentService } from 'app/services/comment/comment.service';
 import { TeamService } from 'app/services/teams/team-service';
 import { AuthService } from 'app/services/auth/auth-service';
 import { NavbarComponent } from 'app/Components/navbar/navbar.component';
-import { UserService } from 'app/services/user/user-service'; // přidej tento service
+import { UserService } from 'app/services/user/user-service';
 
 @Component({
   selector: 'app-diskuze',
@@ -32,7 +32,7 @@ export class DiskuzeComponent implements OnInit {
   username: string = '';
   isLoggedIn: boolean = false;
 
-  userMap: Map<number, string> = new Map(); // userId → username
+  userMap: Map<number, string> = new Map();
 
   constructor(
     private commentService: CommentService,
@@ -101,6 +101,14 @@ export class DiskuzeComponent implements OnInit {
 
     this.commentService.addComment(comment).subscribe(() => {
       this.newComment = '';
+      this.loadComments();
+    });
+  }
+
+  deleteComment(id: number) {
+    if (!confirm('Opravdu chceš smazat tento komentář?')) return;
+
+    this.commentService.deleteComment(id).subscribe(() => {
       this.loadComments();
     });
   }

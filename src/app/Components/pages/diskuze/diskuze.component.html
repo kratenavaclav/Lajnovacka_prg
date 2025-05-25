@@ -11,7 +11,7 @@
         <h2>Komentáře k týmu: {{ selectedTeamName }}</h2>
 
         <div *ngFor="let comment of comments" class="comment-box">
-          <p class="comment-user">Uživatel {{ comment.userId }}</p>
+          <p class="comment-user">{{ getUsername(comment.userId) }}</p>
           <p class="comment-content">{{ comment.content }}</p>
           <p class="comment-date">{{ comment.createdAt | date: 'short' }}</p>
         </div>

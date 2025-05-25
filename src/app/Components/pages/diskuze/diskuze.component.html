@@ -1,36 +1,41 @@
 <app-navbar></app-navbar>
 
-<div class="diskuze-wrapper">
-  <!-- Sekce komentářů -->
-  <div class="comments-section">
-    <h2>Diskuze k týmu</h2>
-
-    <div *ngFor="let comment of comments" class="comment">
-      <strong>Uživatel {{ comment.userId }}</strong>
-      <p>{{ comment.content }}</p>
-      <small>{{ comment.createdAt | date:'short' }}</small>
-      <hr />
-    </div>
-
-    <div *ngIf="isLoggedIn; else loginPrompt">
-      <textarea [(ngModel)]="newComment" placeholder="Napiš komentář..." rows="3"></textarea>
-      <button (click)="submitComment()">Odeslat</button>
-    </div>
-
-    <ng-template #loginPrompt>
-      <p>Pro přidání komentáře se přihlas.</p>
-    </ng-template>
+<div class="diskuze-page">
+  <div class="diskuze-header">
+    <h1>Diskuze k týmům</h1>
   </div>
 
-  <!-- Pravý sloupec – výběr týmů -->
-  <div class="team-list">
-    <h3>Týmy</h3>
-    <ul>
-      <li *ngFor="let team of teams"
-          [class.active]="team.id === selectedTeamId"
-          (click)="selectTeam(team.id)">
-        {{ team.name }}
-      </li>
-    </ul>
+  <div class="diskuze-content">
+    <div class="comment-column">
+      <div *ngIf="selectedTeamId">
+        <h2>Komentáře k týmu: {{ selectedTeamName }}</h2>
+
+        <div *ngFor="let comment of comments" class="comment-box">
+          <p class="comment-user">Uživatel {{ comment.userId }}</p>
+          <p class="comment-content">{{ comment.content }}</p>
+          <p class="comment-date">{{ comment.createdAt | date: 'short' }}</p>
+        </div>
+
+        <div *ngIf="isLoggedIn; else loginPrompt" class="comment-form">
+          <textarea [(ngModel)]="newComment" rows="3" placeholder="Napiš komentář..."></textarea>
+          <button (click)="submitComment()">Odeslat</button>
+        </div>
+
+        <ng-template #loginPrompt>
+          <p class="login-warning">Pro přidání komentáře se musíš přihlásit.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="team-column">
+      <h3>Týmy</h3>
+      <ul>
+        <li *ngFor="let team of teams"
+            [class.active]="team.id === selectedTeamId"
+            (click)="selectTeam(team.id)">
+          {{ team.name }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

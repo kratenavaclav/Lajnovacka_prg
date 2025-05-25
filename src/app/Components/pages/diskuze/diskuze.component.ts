@@ -1,17 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Comment } from 'app/models/comment/model'; // necháváme alias
-import { CommentService } from 'app/services/comment/comment.service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Comment } from 'app/models/comment/model';
 import { Team } from 'app/models/teams/models';
-import { TeamService } from 'app/services/teams/team-service'; // jak jsi měl
+import { CommentService } from 'app/services/comment/comment.service';
+import { TeamService } from 'app/services/teams/team-service';
+import { NavbarComponent } from 'app/Components/navbar/navbar.component';
 
 @Component({
   selector: 'app-diskuze',
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    NavbarComponent
+  ],
   templateUrl: './diskuze.component.html',
   styleUrls: ['./diskuze.component.scss']
 })
 export class DiskuzeComponent implements OnInit {
   teams: Team[] = [];
   selectedTeamId: number | null = null;
+  selectedTeamName: string = '';
   comments: Comment[] = [];
   newComment: string = '';
   userId: number | null = null;
@@ -33,6 +45,7 @@ export class DiskuzeComponent implements OnInit {
       this.teams = data;
       if (this.teams.length > 0) {
         this.selectedTeamId = this.teams[0].id;
+        this.selectedTeamName = this.teams[0].name;
         this.loadComments();
       }
     });
@@ -40,6 +53,8 @@ export class DiskuzeComponent implements OnInit {
 
   selectTeam(teamId: number) {
     this.selectedTeamId = teamId;
+    const team = this.teams.find(t => t.id === teamId);
+    this.selectedTeamName = team?.name ?? '';
     this.loadComments();
   }
 

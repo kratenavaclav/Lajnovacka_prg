@@ -1,28 +1,35 @@
 <app-navbar></app-navbar>
 
-<div class="chat-wrapper">
+<div class="diskuze-wrapper">
+  <!-- Sekce komentářů -->
+  <div class="comments-section">
+    <h2>Diskuze k týmu</h2>
 
-  <div class="chat-container">
-    <div class="chat-header">
-      <h2>Diskuze: {{ selectedTeam || 'Vyber tým' }}</h2>
+    <div *ngFor="let comment of comments" class="comment">
+      <strong>Uživatel {{ comment.userId }}</strong>
+      <p>{{ comment.content }}</p>
+      <small>{{ comment.createdAt | date:'short' }}</small>
+      <hr />
     </div>
-    <div class="chat-messages">
-      <div *ngFor="let msg of messages" class="message">
-        <div class="message-text">{{ msg }}</div>
-      </div>
+
+    <div *ngIf="isLoggedIn; else loginPrompt">
+      <textarea [(ngModel)]="newComment" placeholder="Napiš komentář..." rows="3"></textarea>
+      <button (click)="submitComment()">Odeslat</button>
     </div>
-    <div class="chat-input">
-      <input [(ngModel)]="newMessage" type="text" placeholder="Napište zprávu" (keyup.enter)="sendMessage()" />
-      <button (click)="sendMessage()">Odeslat</button>
-    </div>
+
+    <ng-template #loginPrompt>
+      <p>Pro přidání komentáře se přihlas.</p>
+    </ng-template>
   </div>
 
-
-  <div class="teams-container">
-    <h3>Vyber tým</h3>
+  <!-- Pravý sloupec – výběr týmů -->
+  <div class="team-list">
+    <h3>Týmy</h3>
     <ul>
-      <li *ngFor="let team of teams" (click)="selectTeam(team)">
-        {{ team }}
+      <li *ngFor="let team of teams"
+          [class.active]="team.id === selectedTeamId"
+          (click)="selectTeam(team.id)">
+        {{ team.name }}
       </li>
     </ul>
   </div>

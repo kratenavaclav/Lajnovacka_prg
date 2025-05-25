@@ -1,64 +1,67 @@
-import { Component,OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { Component, OnInit } from '@angular/core';
+import { Comment } from 'app/models/comment/model'; // necháváme alias
+import { CommentService } from 'app/services/comment/comment.service';
+import { Team } from 'app/models/teams/models';
+import { TeamService } from 'app/services/teams/team-service'; // jak jsi měl
 
 @Component({
   selector: 'app-diskuze',
-  standalone: true,
   templateUrl: './diskuze.component.html',
-  styleUrls: ['./diskuze.component.scss'],
-  imports: [CommonModule, FormsModule, NavbarComponent]
+  styleUrls: ['./diskuze.component.scss']
 })
-export class DiskuzeComponent  implements OnInit {
-  teams = [
-    'SK Slavia Praha',
-    'AC Sparta Praha',
-    'FC Viktoria Plzeň',
-    'FC Baník Ostrava',
-    'SK Sigma Olomouc',
-    'FC Slovácko',
-    'Bohemians Praha 1905',
-    'FK Jablonec',
-    'FK Mladá Boleslav',
-    'FC Hradec Králové',
-    'FC Zlín',
-    'FK Teplice',
-    'Dynamo České Budějovice',
-    'Karviná',
-    'Pardubice',
-    'FK Jihlava'
-  ];
-  selectedTeam: string | null = null;
-  teamMessages: Record<string, string[]> = {};
-  newMessage = '';
+export class DiskuzeComponent implements OnInit {
+  teams: Team[] = [];
+  selectedTeamId: number | null = null;
+  comments: Comment[] = [];
+  newComment: string = '';
+  userId: number | null = null;
+  isLoggedIn: boolean = false;
+
+  constructor(
+    private commentService: CommentService,
+    private teamService: TeamService
+  ) {}
 
   ngOnInit(): void {
-    const savedMessages = localStorage.getItem('teamMessages');
-    if (savedMessages) {
-      this.teamMessages = JSON.parse(savedMessages);
-    }
+    this.userId = Number(localStorage.getItem('userId'));
+    this.isLoggedIn = !!this.userId;
+    this.loadTeams();
   }
 
-  get messages(): string[] {
-    if (this.selectedTeam) {
-      return this.teamMessages[this.selectedTeam] || [];
-    }
-    return [];
+  loadTeams() {
+    this.teamService.getAllTeams().subscribe(data => {
+      this.teams = data;
+      if (this.teams.length > 0) {
+        this.selectedTeamId = this.teams[0].id;
+        this.loadComments();
+      }
+    });
   }
 
-  selectTeam(team: string) {
-    this.selectedTeam = team;
-    if (!this.teamMessages[team]) {
-      this.teamMessages[team] = [];
-    }
+  selectTeam(teamId: number) {
+    this.selectedTeamId = teamId;
+    this.loadComments();
   }
 
-  sendMessage() {
-    if (this.newMessage.trim() && this.selectedTeam) {
-      this.teamMessages[this.selectedTeam].push(this.newMessage.trim());
-      this.newMessage = '';
-      localStorage.setItem('teamMessages', JSON.stringify(this.teamMessages));
-    }
+  loadComments() {
+    if (!this.selectedTeamId) return;
+    this.commentService.getCommentsByTeam(this.selectedTeamId).subscribe(data => {
+      this.comments = data;
+    });
+  }
+
+  submitComment() {
+    if (!this.newComment.trim() || !this.selectedTeamId || !this.userId) return;
+
+    const comment: Comment = {
+      userId: this.userId,
+      teamId: this.selectedTeamId,
+      content: this.newComment.trim()
+    };
+
+    this.commentService.addComment(comment).subscribe(() => {
+      this.newComment = '';
+      this.loadComments();
+    });
   }
 }

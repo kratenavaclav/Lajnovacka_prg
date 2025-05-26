@@ -1,0 +1,84 @@
+.main-content {
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
+  min-height: 100vh;
+}
+
+.matches-filter {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+
+  select {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .reset-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+}
+
+.match-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  margin: 0.8rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.match-date {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.6rem;
+}
+
+.match-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    height: 50px;
+  }
+
+  span {
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+  }
+}
+
+.score-block {
+  font-weight: bold;
+  font-size: 1.5rem;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-location {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.4rem;
+}

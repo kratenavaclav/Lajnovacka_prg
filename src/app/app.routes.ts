@@ -10,6 +10,7 @@ import { RegistraceComponent } from './Components/pages/registrace/registrace.co
 import { TeamDetailsComponent } from './Components/team-details/team-details.component';
 import { PlayerComponent } from './Components/pages/player/player.component';
 import { MojeSazeckyPageComponent } from './Components/pages/Moje-sazecky-page/Moje-sazecky-page.component';
+import { MatchesComponent } from './Components/pages/matches/matches.component';
 
 export const routes: Routes = [
   { path: '', component: HlavniStrankaComponent },
@@ -19,9 +20,10 @@ export const routes: Routes = [
   { path: 'tabulka-strelcu', component: TabulkaStrelcuPageComponent },
   { path: 'tipovaci-soutez', component: TipovaciSoutezComponent },
   { path: 'teams/:teamId', component: TeamDetailsComponent },
-  {path: 'moje-sazecky-page', component: MojeSazeckyPageComponent},
+  { path: 'moje-sazecky-page', component: MojeSazeckyPageComponent },
   { path: 'hraci/:id', component: PlayerComponent },
   { path: 'prihlaseni', component: PrihlaseniComponent },
   { path: 'registrace', component: RegistraceComponent },
+  { path: 'zapasy', component: MatchesComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

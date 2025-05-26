@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="main-content">
+  <div class="matches-filter">
+    <label>
+      Tým:
+      <select [(ngModel)]="selectedTeam" (change)="filterMatches()">
+        <option value="">Všechny týmy</option>
+        <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+      </select>
+    </label>
+
+    <label>
+      Kolo:
+      <select [(ngModel)]="selectedRound" (change)="filterMatches()">
+        <option value="">Všechna kola</option>
+        <option *ngFor="let round of rounds" [value]="round">{{ round }}. kolo</option>
+      </select>
+    </label>
+
+    <button class="reset-btn" (click)="resetFilter()">Reset</button>
+  </div>
+
+  <div *ngFor="let round of rounds">
+    <h3 *ngIf="hasMatchesInRound(round)">
+      {{ round }}. kolo
+    </h3>
+
+    <div class="match-card" *ngFor="let match of getMatchesByRound(round)">
+      <div class="match-date">{{ match.date | date: 'dd.MM.yyyy HH:mm' }}</div>
+
+      <div class="match-logos">
+        <div class="team-block">
+          <img [src]="'/' + match.homeTeam.logo" alt="home logo" />
+          <span>{{ match.homeTeam.name }}</span>
+        </div>
+
+        <div class="score-block">
+          <strong>{{ match.homeScore }} : {{ match.awayScore }}</strong>
+        </div>
+
+        <div class="team-block">
+          <img [src]="'/' + match.awayTeam.logo" alt="away logo" />
+          <span>{{ match.awayTeam.name }}</span>
+        </div>
+      </div>
+
+      <div class="match-location">
+        {{ match.stadium || 'Stadion neuveden' }}
+      </div>
+    </div>
+  </div>
+</div>

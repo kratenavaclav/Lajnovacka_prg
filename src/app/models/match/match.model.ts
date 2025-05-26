@@ -6,6 +6,7 @@ export interface MatchTeam {
 export interface Match {
   id: number;
   date: string;
+  round: number;
   homeScore: number;
   awayScore: number;
   stadium: string;

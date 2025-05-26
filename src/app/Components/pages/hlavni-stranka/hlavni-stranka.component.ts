@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { TabulkaLigyComponent } from '../tabulka-ligy/tabulka-ligy.component';
 import { TabulkaStrelcuComponent } from '../tabulka-strelcu/tabulka-strelcu.component';
-import { HttpClient } from '@angular/common/http';
+
+import { MatchService } from 'app/services/match/match-service';
+import { Match } from 'app/models/match/match.model';
 
 @Component({
   selector: 'app-hlavni-stranka',
@@ -18,27 +22,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./hlavni-stranka.component.scss']
 })
 export class HlavniStrankaComponent implements OnInit {
+  matches: Match[] = [];
 
-  matches: {
-    date: string;
-    homeScore: number;
-    awayScore: number;
-    stadium: string;
-    homeTeam: string;
-    awayTeam: string;
-  }[] = [];
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private matchService: MatchService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.http.get<{
-      date: string;
-      homeScore: number;
-      awayScore: number;
-      stadium: string;
-      homeTeam: string;
-      awayTeam: string;
-    }[]>('http://localhost:5044/api/matches/recent-matches')
-      .subscribe(data => this.matches = data);
+    this.matchService.getRecentMatches().subscribe(matches => {
+      this.matches = matches;
+    });
+  }
+
+  zobrazVsechnyZapasy(): void {
+    this.router.navigate(['/zapasy']);
   }
 }
